@@ -132,25 +132,15 @@ def format_dict(history):
 def load_bq(dataframe):
   client = bigquery.Client()
 
-  query = """ 
-    CREATE TABLE IF NOT EXISTS played_tracks (
-      song_name VARCHAR(100),
-      artist_name VARCHAR(50),
-      played_at DATATIME,
-      timestamp DATE,
-      CONSTRAINT played_at_pk PRIMARY KEY (played_at)
-    )
-  """
-
   table_id = "spotify-etl-417702.spotify_db.played_tracks"
 
   job_config = bigquery.LoadJobConfig(
     schema=[
 
-        bigquery.SchemaField("song_name", bigquery.enums.SqlTypeNames.STRING),
-        bigquery.SchemaField("artist_name", bigquery.enums.SqlTypeNames.STRING),
-        bigquery.SchemaField("played_at", bigquery.enums.SqlTypeNames.STRING),
-        bigquery.SchemaField("timestamp", bigquery.enums.SqlTypeNames.STRING)
+        bigquery.SchemaField("song_name", "STRING"),
+        bigquery.SchemaField("artist_name", "STRING"),
+        bigquery.SchemaField("played_at", "DATETIME"),
+        bigquery.SchemaField("timestamp", "DATE")
     ]
   )
 
