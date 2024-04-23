@@ -24,7 +24,7 @@ By combining Docker, Python, BigQuery, and Looker Studio, this project offers a 
 2. Get your Spotify credentials
 - Go to https://developer.spotify.com/dashboard
 - Click on Create app
-- Fill the fields (In the Redirect URI part, just provide a website of yours, if you do not have any, you can create one and quickly upload it to Netlify)
+- Fill the fields (In the Redirect URI part, just provide this website: https://spotify-etl.netlify.app/)
 - Go to your app -> Settings
 - Copy your CLIENT_ID and CLIENT_SECRET
 
@@ -32,12 +32,12 @@ By combining Docker, Python, BigQuery, and Looker Studio, this project offers a 
 - Go to https://console.cloud.google.com/
 - Select BigQuery
 - Create a project
-- Create a DB
+- Create a dataset
 
 4. Grant permissions for your BigQuery project
 - Go to IAM & Admin
 - Select your project
-- Grant "BigQuery Data Owner" and "BigQuery User" permissions 
+- Grant "BigQuery Data Owner" or "BigQuery User" permissions 
 
 5. Get your key for BigQuery
 - Go to service accounts and create one
@@ -54,13 +54,14 @@ To run this project, you will need to add the following environment variables to
 
 `REDIRECT_URI`
 
-`GOOGLE_APPLICATION_CREDENTIALS`
+`GOOGLE_APPLICATION_CREDENTIALS` (It´s the name of your BigQuery  key)
 
-5. Creating Docker image
+`DB_ID` (Go to BigQuery, go to the Explorer panel, select your project, select your dataset and copy the Dataset ID)
+
+7. Creating Docker image
 - To create an image, copy and paste the following command in your terminal:
    ```
    docker image build --tag spotify-etl .
-
    ```
 
 ## Usage
@@ -68,7 +69,6 @@ To run this project, you will need to add the following environment variables to
 - To run the container, copy and paste this command in your terminal:
    ```
    docker container run  -it spotify-etl
-
    ```
 2. Getting the code
 - Once you run the container, it will ask you to go to the website you provided. Copy everything in the URL right to the word code=
