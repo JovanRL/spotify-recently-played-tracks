@@ -13,6 +13,7 @@ from google.cloud import bigquery
 CLIENT_ID = os.environ.get('CLIENT_ID')
 CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 REDIRECT_URI = os.environ.get('REDIRECT_URI')
+DB_ID = os.environ.get('DB_ID')
 
 
 def get_auth_code():
@@ -132,7 +133,7 @@ def format_dict(history):
 def load_bq(dataframe):
   client = bigquery.Client()
 
-  table_id = "spotify-etl-417702.spotify_db.played_tracks"
+  table_id = DB_ID + ".played_tracks"
 
   job_config = bigquery.LoadJobConfig(
     schema=[
