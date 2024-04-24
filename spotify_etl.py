@@ -147,8 +147,10 @@ def main():
 
   if song_df.size > 0:
     print(song_df)
+    load_bq(song_df)
+  else:
+    print("No data available to load")
 
-  load_bq(song_df)
 
 
 if __name__ == '__main__':
