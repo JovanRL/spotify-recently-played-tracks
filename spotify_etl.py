@@ -6,7 +6,6 @@ import base64
 import requests
 import datetime
 import pandas as pd
-from requests import post
 from google.cloud import bigquery
 
 
