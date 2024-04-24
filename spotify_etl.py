@@ -68,24 +68,6 @@ def get_auth_header(token):
 def get_history(token):
   today = datetime.datetime.now()
   yesterday = today - datetime.timedelta(days=1)
-  yesterday_unix_timestamp = int (yesterday.timestamp()) * 1000
-  
-  url = "https://api.spotify.com/v1/me/player/recently-played?limit=50&after={time}".format(time=yesterday_unix_timestamp)
-
-  print(yesterday_unix_timestamp)
-
-  headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json"
-  }
-  
-  headers.update(get_auth_header(token))
-
-
-
-def get_history(token):
-  today = datetime.datetime.now()
-  yesterday = today - datetime.timedelta(days=1)
   yesterday_unix_timestamp = int(yesterday.timestamp()) * 1000
 
   headers = {
