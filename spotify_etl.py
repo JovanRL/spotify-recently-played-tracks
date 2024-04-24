@@ -121,8 +121,8 @@ def load_bq(dataframe):
 
         bigquery.SchemaField("song_name", "STRING"),
         bigquery.SchemaField("artist_name", "STRING"),
-        bigquery.SchemaField("played_at", "DATETIME"),
-        bigquery.SchemaField("timestamp", "DATE")
+        bigquery.SchemaField("played_at", "STRING"),
+        bigquery.SchemaField("timestamp", "STRING")
     ]
   )
 
