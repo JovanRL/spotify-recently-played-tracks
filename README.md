@@ -86,4 +86,4 @@ To run this project, you will need to add the following environment variables to
 
 ## Limitations
 - The Spotify API only gives you the last 50 played songs
-- This is not a realtime pipeline, so you will have to run the cointainer everytime you want to upload new data
+- This is not a realtime pipeline, so you will have to run the container everytime you want to upload new data
